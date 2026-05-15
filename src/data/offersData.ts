@@ -98,7 +98,7 @@ export const CTA_PRESETS = [
 ];
 
 // ─── Default seed posters (shown on first load before any uploads) ───────────
-const SEED_KEY = "igo_offers_seeded_v14";
+const SEED_KEY = "igo_offers_seeded_v15";
 
 const DEFAULT_OFFERS: OfferPoster[] = [
   {
