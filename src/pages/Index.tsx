@@ -92,10 +92,10 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-black text-white transition-all duration-700"
+      className={`relative overflow-hidden bg-black text-white transition-all duration-700 ${isPoster ? "aspect-[21/9] sm:aspect-[21/7] md:aspect-[21/6] lg:aspect-[21/5]" : "h-[95vh]"}`}
       style={isPoster
         ? { marginTop: NAVBAR_H }
-        : { height: "95vh" }
+        : {}
       }
     >
       {/* ── POSTER SLIDES: full-width, height adapts to image ── */}
@@ -119,11 +119,7 @@ const HeroSection = () => {
               src={slide.src}
               alt={slide.alt}
               decoding="async"
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-              }}
+              className="w-full h-full object-cover"
             />
             </motion.div>
           </AnimatePresence>
