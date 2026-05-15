@@ -41,8 +41,26 @@ const fader: Variants = {
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0); // 1 for right, -1 for left
   const slide = HERO_SLIDES[current];
   const isPoster = !!slide.isPoster;
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+  };
 
   // Prefetch next 2 hero slides for seamless transitions
   const heroImageUrls = useMemo(() => HERO_SLIDES.map(s => s.src), []);
@@ -52,6 +70,7 @@ const HeroSection = () => {
     // Slide 0 (main-page ad) stays 5s; all others 4.5s
     const delay = current === 0 ? 5000 : 4500;
     const timer = setTimeout(() => {
+      setDirection(1);
       setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
     }, delay);
     return () => clearTimeout(timer);
@@ -81,14 +100,21 @@ const HeroSection = () => {
     >
       {/* ── POSTER SLIDES: full-width, height adapts to image ── */}
       {isPoster && (
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          >
+        <div className="relative w-full h-full overflow-hidden">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={current}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.6 }
+              }}
+              className="absolute inset-0"
+            >
             <img
               src={slide.src}
               alt={slide.alt}
@@ -99,20 +125,26 @@ const HeroSection = () => {
                 display: "block",
               }}
             />
-          </motion.div>
-        </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       )}
 
       {/* ── FARM SLIDES: full-viewport, cover, with text overlay ── */}
       {!isPoster && (
-        <>
-          <AnimatePresence mode="sync">
+        <div className="relative w-full h-full overflow-hidden">
+          <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={current}
-              initial={{ opacity: 0, scale: 1.08 }}
-              animate={{ opacity: 0.72, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.4, ease: "easeInOut" }}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.6 }
+              }}
               className="absolute inset-0"
             >
               <img
@@ -121,8 +153,7 @@ const HeroSection = () => {
                 decoding="async"
                 className="w-full h-full object-cover"
               />
-            </motion.div>
-          </AnimatePresence>
+
 
           {/* Dark gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none z-[1]" />
@@ -152,9 +183,11 @@ const HeroSection = () => {
                   Contact
                 </Link>
               </motion.div>
-            </motion.div>
-          </div>
-        </>
+              </motion.div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+        </div>
       )}
 
       {/* Left / Right arrows
@@ -162,14 +195,20 @@ const HeroSection = () => {
           overshoots the center of the image. We shift the arrows down by NAVBAR_H/2 to
           re-centre them on the visible image. */}
       <button
-        onClick={() => setCurrent((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
+        onClick={() => {
+          setDirection(-1);
+          setCurrent((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+        }}
         className="absolute left-5 z-20 w-11 h-11 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center hover:bg-white/30 transition-all -translate-y-1/2"
         style={{ top: isPoster ? `calc(50% + ${NAVBAR_H / 2}px)` : "50%" }}
       >
         <ArrowRight className="w-4 h-4 text-white rotate-180" />
       </button>
       <button
-        onClick={() => setCurrent((prev) => (prev + 1) % HERO_SLIDES.length)}
+        onClick={() => {
+          setDirection(1);
+          setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
+        }}
         className="absolute right-5 z-20 w-11 h-11 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center hover:bg-white/30 transition-all -translate-y-1/2"
         style={{ top: isPoster ? `calc(50% + ${NAVBAR_H / 2}px)` : "50%" }}
       >
