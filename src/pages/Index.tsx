@@ -1098,15 +1098,15 @@ const Index = () => {
 
   return (
     <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800 overflow-x-hidden">
-      <h1 className="sr-only">IGO Agritech Farms — India's Leading Agri Engineering & Consulting</h1>
+      <h1 className="sr-only">Best Agri Farming Company</h1>
       <SEO
         title="IGO Agritech Farms | India's Leading Agri Engineering & Consulting"
-        description="IGO Agritech Farms — India's leading Agri Engineering & Agri Consulting brand. 10+ years, 15,000+ projects in precision farming, polyhouse, hydroponics, vertical farming & agri infrastructure across India."
+        description="IGO Agritech Farms. Offering best Polyhouse, JV, Hydroponic, Goat Farming Projects, agri infrastructure, agri startups, and more projects across India."
         keywords="agri engineering, agri consulting, precision farming, polyhouse farming, hydroponics, vertical farming, mushroom farming, biofloc, agri startup India, IGO Agritech, farm infrastructure Chennai"
         url="/"
       />
       <Helmet>
-        <meta name="description" content="IGO Agritech Farms — India's leading Agri Engineering & Consulting brand. Precision farming, polyhouse, hydroponics & agri startup solutions across India." />
+        <meta name="description" content="IGO Agritech Farms. Offering best Polyhouse, JV, Hydroponic, Goat Farming Projects, agri infrastructure, agri startups, and more projects across India." />
       </Helmet>
       <HeroSection />
       <WhyChooseSection />
