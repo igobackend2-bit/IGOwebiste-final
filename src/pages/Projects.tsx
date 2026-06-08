@@ -23,10 +23,11 @@ const Projects = () => {
     <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title="Our Projects | Agri Engineering Projects — IGO Agritech Farms"
-        description="Explore 15,000+ completed agri engineering projects by IGO Agritech Farms — polyhouse, hydroponics, vertical farming, biofloc, rooftop farming, solar agriculture, and more across India."
+        description="IGO Agritech Farms. Offering best Polyhouse, JV, Hydroponic, goat Farming Projects, agri infrastructure, agri startups, and more projects across India."
         keywords="agri engineering projects India, polyhouse project, hydroponic project, vertical farming project, mushroom farming project, biofloc project, solar agriculture, rooftop farming"
         url="/projects"
       />
+      <h1 className="sr-only">Top Agri Project Company</h1>
 
       {/* ── Hero ── */}
       <section className="relative pt-24 sm:pt-32 md:pt-40 pb-16 sm:pb-28 md:pb-40 overflow-hidden bg-black">
