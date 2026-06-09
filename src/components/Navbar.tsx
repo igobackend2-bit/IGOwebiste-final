@@ -279,22 +279,34 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [enrichedNav, setEnrichedNav] = useState<any[]>(navLinks);
-  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Dynamically load enriched nav with all 100+ products
     setEnrichedNav(getEnrichedNavLinks());
   }, []);
 
-  const handleMouseEnter = (label: string) => {
-    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
-    setOpenDropdown(label);
-  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (event.button === 2) {
+        setOpenDropdown(null);
+        return;
+      }
+      if (!target.closest('.desktop-nav-item')) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  const handleMouseLeave = () => {
-    hoverTimeout.current = setTimeout(() => {
+  const handleToggleDropdown = (e: React.MouseEvent, label: string, hasChildren: boolean) => {
+    if (hasChildren) {
+      e.preventDefault();
+      setOpenDropdown(prev => prev === label ? null : label);
+    } else {
       setOpenDropdown(null);
-    }, 300); // 300ms delay forgiving hover UX
+    }
   };
 
   const location = useLocation();
@@ -344,12 +356,11 @@ const Navbar = () => {
               return (
                 <div
                   key={link.label}
-                  className={isMega ? "static" : "relative"}
-                  onMouseEnter={() => handleMouseEnter(link.label)}
-                  onMouseLeave={handleMouseLeave}
+                  className={`desktop-nav-item ${isMega ? "static" : "relative"}`}
                 >
                   <Link
                     to={link.href}
+                    onClick={(e) => handleToggleDropdown(e, link.label, !!link.children)}
                     className={`text-[11px] lg:text-[12px] xl:text-sm font-semibold whitespace-nowrap ${linkColorClass} hover:text-primary transition-all py-2 flex items-center gap-0.5 xl:gap-1 group`}
                   >
                     {link.label}
