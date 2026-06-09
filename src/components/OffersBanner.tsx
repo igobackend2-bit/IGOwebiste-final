@@ -80,7 +80,7 @@ const Slide = ({
           {/* Layer 1: Blurred background fill (for different aspect ratios) */}
           <img
             src={poster.image}
-            alt=""
+            alt="IGO Agritech Special Offers"
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover blur-3xl scale-125 opacity-40 select-none pointer-events-none"
             draggable={false}

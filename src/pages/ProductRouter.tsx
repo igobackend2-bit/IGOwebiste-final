@@ -33,318 +33,318 @@ const siteNavLinks_clean = siteNavLinks.map(l => ({ ...l, label: l.label.trim() 
 const productsNav = siteNavLinks_clean.find(l => l.label === 'Products')?.children || [];
 
 // ── Category metadata (slug → display info) ──────────────────────────────────
-const CATEGORY_META: Record<string, { label: string; cardImage: string; desc: string }> = {
+const CATEGORY_META: Record<string, { label: string; cardImage: string; desc: string; alt?: string }> = {
   'agri-inputs': {
     label: 'Agri-Farming Solutions',
-    cardImage: '/assets/product-images/new main image for product/agri inputs .jpg',
+    cardImage: '/assets/product-images/new main image for product/agri inputs .jpg', alt: "premium-seeds-and-organic-inputs",
     desc: 'Premium seeds, organic inputs, and advanced propagation materials for high-yield farming.'
   },
   'structure': {
     label: 'Polyhouse & Engineering',
-    cardImage: '/assets/product-images/new main image for product/polyhouse structure .jpg',
+    cardImage: '/assets/product-images/new main image for product/polyhouse structure .jpg', alt: "polyhouse-structure-and-engineering",
     desc: 'Turn-key polyhouse structures, advanced cladding, and precision irrigation engineering.'
   },
   'automation': {
     label: 'Automation & Control',
-    cardImage: '/assets/product-images/new main image for product/automation and cotroller .jpg',
+    cardImage: '/assets/product-images/new main image for product/automation and cotroller .jpg', alt: "automation-and-control",
     desc: 'Smart IoT controllers, precision sensors, and automated fertigation systems.'
   },
   'horticulture': {
     label: 'Horticulture Solutions',
-    cardImage: '/assets/product-images/new main image for product/horticulture catlog .png',
+    cardImage: '/assets/product-images/new main image for product/horticulture catlog .png', alt: "horticulture-solutions",
     desc: 'Elite varieties of vegetables, flowers, fruits, and herbs for commercial cultivation.'
   },
   'digital': {
     label: 'Digital & IoT Services',
-    cardImage: '/assets/product-images/new main image for product/digital agri and iot .jpg',
+    cardImage: '/assets/product-images/new main image for product/digital agri and iot .jpg', alt: "digital-and-iot-services",
     desc: 'Data-driven farming with smart hardware nodes and integrated software dashboards.'
   },
   'specialized': {
     label: 'Post-Harvest & Specialized',
-    cardImage: '/assets/product-images/new main image for product/post harvest and legacy .jpg',
+    cardImage: '/assets/product-images/new main image for product/post harvest and legacy .jpg', alt: "post-harvest-and-specialized",
     desc: 'Solar cold storage, advanced sorting, and specialized aquaculture/livestock solutions.'
   }
 };
 
 // ── Subcategory metadata (slug → display info) ────────────────────────────────
-const SUBCATEGORY_META: Record<string, { label: string; image: string; desc: string }> = {
+const SUBCATEGORY_META: Record<string, { label: string; image: string; desc: string; alt?: string }> = {
   'seeds': {
     label: 'High-Yield Seeds',
-    image: '/assets/product-images/product type new images/Soil Mix Media.jpg',
+    image: '/assets/product-images/product type new images/Soil Mix Media.jpg', alt: "high-yield-seeds",
     desc: 'Commercial grade hybrid and open-pollinated seeds optimized for precision farming and stable yields.'
   },
   'veg-seeds': {
     label: 'Vegetable Seeds',
-    image: '/assets/product-images/product type new images/vegetables seeds/Tomato seeds.jpg',
+    image: '/assets/product-images/product type new images/vegetables seeds/Tomato seeds.jpg', alt: "vegetable-seeds",
     desc: '20 premium vegetable seed varieties — from tomato and capsicum to leafy greens — for polyhouse and open-field cultivation.'
   },
   'fruit-seeds': {
     label: 'Fruit Seeds',
-    image: '/assets/product-images/product type new images/fruit seeds/Mango seeds.jpg',
+    image: '/assets/product-images/product type new images/fruit seeds/Mango seeds.jpg', alt: "fruit-seeds",
     desc: '7 high-value fruit seed varieties for orchard establishment, rootstock propagation, and commercial fruit production.'
   },
   'leafy-seeds': {
     label: 'Leafy & Herb Seeds',
-    image: '/assets/product-images/product type new images/Leafy Seeds/Basil seeds.jpg',
+    image: '/assets/product-images/product type new images/Leafy Seeds/Basil seeds.jpg', alt: "leafy-seeds",
     desc: '12 premium leafy and herb seed varieties for hydroponic systems, fresh herb markets, and specialty culinary supply chains.'
   },
   'media': {
     label: 'Growing Substrates',
-    image: '/assets/product-images/product type new images/Grow Media.jpg',
+    image: '/assets/product-images/product type new images/Grow Media.jpg', alt: "growing-substrates",
     desc: 'Professional-grade media including buffered cocopeat, perlite, and custom nursery mixes.'
   },
   'nutrition': {
     label: 'Plant Nutrition',
-    image: '/assets/product-images/product type new images/NPK Fertilizers.jpg',
+    image: '/assets/product-images/product type new images/NPK Fertilizers.jpg', alt: "plant-nutrition",
     desc: 'Water-soluble NPKs, nano-fertilizers, and organic growth promoters for targeted feeding.'
   },
   'protection': {
     label: 'Plant Protection',
-    image: '/assets/product-images/product type new images/Bio Pesticides (Neem Oil, Trichoderma, Bacillus).png',
+    image: '/assets/product-images/product type new images/Bio Pesticides (Neem Oil, Trichoderma, Bacillus).png', alt: "plant-protection",
     desc: 'Biological and organic crop protection protocols for sustainable pest and disease management.'
   },
   'pgrs': {
     label: 'Growth Regulators',
-    image: '/assets/product-images/product type new images/Amino Acid Nutrients.png',
+    image: '/assets/product-images/product type new images/Amino Acid Nutrients.png', alt: "plant-growth-regulators",
     desc: 'Advanced plant growth regulators for controlled bloom, fruit setting, and stress recovery.'
   },
   'mulching': {
     label: 'Mulching Systems',
-    image: '/assets/product-images/product type new images/Silver Mulch.jpg',
+    image: '/assets/product-images/product type new images/Silver Mulch.jpg', alt: "mulching-systems",
     desc: 'UV-stabilized silver-black mulch and weed mats to optimize moisture and eliminate competition.'
   },
   'frames': {
     label: 'Structural Engineering',
-    image: '/assets/product-images/product type new images/gi pipes .jpg',
+    image: '/assets/product-images/product type new images/gi pipes .jpg', alt: "structural-engineering",
     desc: 'Hot-dip galvanized structural components and precision engineering for protected cultivation.'
   },
   'covering': {
     label: 'Greenhouse Covering',
-    image: '/assets/product-images/product type new images/Polyhouse Sheets.png',
+    image: '/assets/product-images/product type new images/Polyhouse Sheets.png', alt: "greenhouse-covering",
     desc: 'Multi-layer UV stabilized poly-films and specialized cladding for light and temperature management.'
   },
   'nets': {
     label: 'Specialized Netting',
-    image: '/assets/product-images/product type new images/Shade Nets.png',
+    image: '/assets/product-images/product type new images/Shade Nets.png', alt: "specialized-netting",
     desc: 'High-tenacity insect nets, shade nets, and anti-bird solutions for crop security.'
   },
   'ventilation': {
     label: 'Climate Control',
-    image: '/assets/product-images/product type new images/Exhaust Fans.jpg',
+    image: '/assets/product-images/product type new images/Exhaust Fans.jpg', alt: "climate-control",
     desc: 'Exhaust fans, cooling pads, and automated vent systems for precise internal climate management.'
   },
   'misting': {
     label: 'Misting & Humidity',
-    image: '/assets/product-images/product type new images/Misting Systems.jpg',
+    image: '/assets/product-images/product type new images/Misting Systems.jpg', alt: "misting-and-humidity",
     desc: 'High-pressure fogging and misting systems to maintain ideal VPD and cooling levels.'
   },
   'plumbing': {
     label: 'Plumbing & Filtration',
-    image: '/assets/product-images/product type new images/Irrigation Pipes (PVC, HDPE).jpg',
+    image: '/assets/product-images/product type new images/Irrigation Pipes (PVC, HDPE).jpg', alt: "plumbing-and-filtration",
     desc: 'Industrial-grade PVC/CPVC distribution lines and advanced filtration for irrigation longevity.'
   },
   'dosing': {
     label: 'Fertigation Systems',
-    image: '/assets/product-images/product type new images/Fertigation Units.png',
+    image: '/assets/product-images/product type new images/Fertigation Units.png', alt: "fertigation-systems",
     desc: 'Automated fertilizer dosing and pH/EC control systems for repeatable crop performance.'
   },
   'controllers': {
     label: 'Smart Farm Control',
-    image: '/assets/product-images/product type new images/Polyhouse Controllers.png',
+    image: '/assets/product-images/product type new images/Polyhouse Controllers.png', alt: "smart-farm-control",
     desc: 'Centralized IGO-Link controllers for automated farm management via IoT and mobile platforms.'
   },
   'motors': {
     label: 'Precision Actuators',
-    image: '/assets/product-images/product type new images/Motors & Actuators.jpg',
+    image: '/assets/product-images/product type new images/Motors & Actuators.jpg', alt: "precision-actuators",
     desc: 'Heavy-duty actuators and motors for automated vent and shade control in complex structures.'
   },
   'electrical': {
     label: 'Industrial Electrical',
-    image: '/assets/product-images/product type new images/Control Panels.jpg',
+    image: '/assets/product-images/product type new images/Control Panels.jpg', alt: "industrial-electrical",
     desc: 'Control panels, VFDs, and power management systems designed for harsh agricultural environments.'
   },
   'vegetables': {
     label: 'Vegetable Crops',
-    image: '/assets/product-images/new main image for product/horticulture catlog .png',
+    image: '/assets/product-images/new main image for product/horticulture catlog .png', alt: "vegetable-crops",
     desc: 'Elite varieties of commercial vegetables bred for market dominance and yield stability.'
   },
   'flowers': {
     label: 'Commercial Flowers',
-    image: '/assets/product-images/product type new images/Organic Fertilizers.jpg',
+    image: '/assets/product-images/product type new images/Organic Fertilizers.jpg', alt: "commercial-flowers",
     desc: 'High-density floriculture inputs for the cut-flower and religious-garland industries.'
   },
   'fruits': {
     label: 'Ornamental & Fruits',
-    image: '/assets/product-images/new main image for product/horticulture catlog .png',
+    image: '/assets/product-images/new main image for product/horticulture catlog .png', alt: "ornamental-fruits",
     desc: 'Premium fruit saplings and exotic cultivars for commercial orchards and boutique farms.'
   },
   'herbs': {
     label: 'Aromatic & Herbs',
-    image: '/assets/product-images/product type new images/Tulsi  seeds.jpg',
+    image: '/assets/product-images/product type new images/Tulsi  seeds.jpg', alt: "aromatic-herbs",
     desc: 'Medicinal plants and culinary herbs for pharmaceutical extraction and fresh markets.'
   },
   'hardware': {
     label: 'IoT Hardware Nodes',
-    image: '/assets/product-images/product type new images/IoT Devices.jpg',
+    image: '/assets/product-images/product type new images/IoT Devices.jpg', alt: "iot-hardware-nodes",
     desc: 'Ruggedized sensor nodes and gateways for real-time field data telemetry.'
   },
   'software': {
     label: 'Digital Dashboards',
-    image: '/assets/product-images/product type new images/Automation Dashboards.jpg',
+    image: '/assets/product-images/product type new images/Automation Dashboards.jpg', alt: "digital-dashboards",
     desc: 'Enterprise-grade agri-ERP and analytics software for farm management at scale.'
   },
   'services': {
     label: 'Precision Services',
-    image: '/assets/product-images/product type new images/AI Crop Advisory.jpg',
+    image: '/assets/product-images/product type new images/AI Crop Advisory.jpg', alt: "precision-services",
     desc: 'Satellite monitoring, soil mapping, and digital consultancy for data-driven decisions.'
   },
   'post-harvest': {
     label: 'Harvesting Tech',
-    image: '/assets/product-images/product type new images/Solar Dryers.jpg',
+    image: '/assets/product-images/product type new images/Solar Dryers.jpg', alt: "harvesting-tech",
     desc: 'Advanced tools and systems for efficient harvest, storage, and cold-chain logistics.'
   },
   'aquaculture': {
     label: 'Aquaculture Systems',
-    image: '/assets/product-images/product type new images/Fish Feed.jpg',
+    image: '/assets/product-images/product type new images/Fish Feed.jpg', alt: "aquaculture-systems",
     desc: 'Tier-1 nutrition and oxygenation systems for intensive fish and shrimp farming.'
   },
   'livestock': {
     label: 'Livestock Ecosystems',
-    image: '/assets/product-images/product type new images/Goat Feed.png',
+    image: '/assets/product-images/product type new images/Goat Feed.png', alt: "livestock-ecosystems",
     desc: 'Professional-grade feed, housing, and veterinary care products for modern livestock.'
   }
 };
 
 // ── Individual product images ─────────────────────────────────────────────────
 const PRODUCT_IMAGES: Record<string, string> = {
-  'vegetable-seeds-precision':   '/assets/product-images/product type new images/vegetables seeds/Tomato seeds.jpg',
-  'fruit-seeds-exotic':          '/assets/product-images/product type new images/fruit seeds/Papaya seeds.jpg',
-  'flower-seeds-pro':            '/assets/product-images/product type new images/flowers seeds/flowers seeds',
-  'medicinal-seeds':             '/assets/product-images/product type new images/Tulsi  seeds.jpg',
-  'herbs-seeds':                 '/assets/product-images/product type new images/Leafy Seeds/Basil seeds.jpg',
+  'vegetable-seeds-precision': '/assets/product-images/product type new images/vegetables seeds/Tomato seeds.jpg',
+  'fruit-seeds-exotic': '/assets/product-images/product type new images/fruit seeds/Papaya seeds.jpg',
+  'flower-seeds-pro': '/assets/product-images/product type new images/flowers seeds/flowers seeds',
+  'medicinal-seeds': '/assets/product-images/product type new images/Tulsi  seeds.jpg',
+  'herbs-seeds': '/assets/product-images/product type new images/Leafy Seeds/Basil seeds.jpg',
   // Vegetable Seeds — individual
-  'seed-tomato':        '/assets/product-images/product type new images/vegetables seeds/Tomato seeds.jpg',
-  'seed-capsicum':      '/assets/product-images/product type new images/vegetables seeds/Capsicum seeds.jpg',
-  'seed-cucumber':      '/assets/product-images/product type new images/vegetables seeds/Cucumber seeds.jpg',
-  'seed-brinjal':       '/assets/product-images/product type new images/vegetables seeds/Brinjal seeds.jpg',
-  'seed-cabbage':       '/assets/product-images/product type new images/vegetables seeds/Cabbage seeds.jpg',
-  'seed-cauliflower':   '/assets/product-images/product type new images/vegetables seeds/Cauliflower Seeds.jpg',
-  'seed-broccoli':      '/assets/product-images/product type new images/vegetables seeds/Broccoli seeds.jpg',
-  'seed-carrot':        '/assets/product-images/product type new images/vegetables seeds/Carrot seed.jpg',
-  'seed-radish':        '/assets/product-images/product type new images/vegetables seeds/Radish seeds.jpg',
-  'seed-beetroot':      '/assets/product-images/product type new images/vegetables seeds/Beetroot seeds.jpg',
-  'seed-onion':         '/assets/product-images/product type new images/vegetables seeds/Onion seeds.jpg',
-  'seed-peas':          '/assets/product-images/product type new images/vegetables seeds/Peas seeds.jpg',
-  'seed-pumpkin':       '/assets/product-images/product type new images/vegetables seeds/Pumpkin seeds.jpg',
-  'seed-bittergourd':   '/assets/product-images/product type new images/vegetables seeds/Bitter Gourd seeds.jpg',
-  'seed-ridgegourd':    '/assets/product-images/product type new images/vegetables seeds/Ridge Gourd seeds.jpg',
-  'seed-bottlegourd':   '/assets/product-images/product type new images/vegetables seeds/Bottle gourd seeds.jpg',
-  'seed-spinach':       '/assets/product-images/product type new images/vegetables seeds/Spinach seeds.jpg',
-  'seed-lettuce':       '/assets/product-images/product type new images/vegetables seeds/Lettuce seeds.jpg',
-  'seed-coriander':     '/assets/product-images/product type new images/vegetables seeds/Coriander seeds.jpg',
-  'seed-methi':         '/assets/product-images/product type new images/vegetables seeds/Methi seeds.jpg',
+  'seed-tomato': '/assets/product-images/product type new images/vegetables seeds/Tomato seeds.jpg',
+  'seed-capsicum': '/assets/product-images/product type new images/vegetables seeds/Capsicum seeds.jpg',
+  'seed-cucumber': '/assets/product-images/product type new images/vegetables seeds/Cucumber seeds.jpg',
+  'seed-brinjal': '/assets/product-images/product type new images/vegetables seeds/Brinjal seeds.jpg',
+  'seed-cabbage': '/assets/product-images/product type new images/vegetables seeds/Cabbage seeds.jpg',
+  'seed-cauliflower': '/assets/product-images/product type new images/vegetables seeds/Cauliflower Seeds.jpg',
+  'seed-broccoli': '/assets/product-images/product type new images/vegetables seeds/Broccoli seeds.jpg',
+  'seed-carrot': '/assets/product-images/product type new images/vegetables seeds/Carrot seed.jpg',
+  'seed-radish': '/assets/product-images/product type new images/vegetables seeds/Radish seeds.jpg',
+  'seed-beetroot': '/assets/product-images/product type new images/vegetables seeds/Beetroot seeds.jpg',
+  'seed-onion': '/assets/product-images/product type new images/vegetables seeds/Onion seeds.jpg',
+  'seed-peas': '/assets/product-images/product type new images/vegetables seeds/Peas seeds.jpg',
+  'seed-pumpkin': '/assets/product-images/product type new images/vegetables seeds/Pumpkin seeds.jpg',
+  'seed-bittergourd': '/assets/product-images/product type new images/vegetables seeds/Bitter Gourd seeds.jpg',
+  'seed-ridgegourd': '/assets/product-images/product type new images/vegetables seeds/Ridge Gourd seeds.jpg',
+  'seed-bottlegourd': '/assets/product-images/product type new images/vegetables seeds/Bottle gourd seeds.jpg',
+  'seed-spinach': '/assets/product-images/product type new images/vegetables seeds/Spinach seeds.jpg',
+  'seed-lettuce': '/assets/product-images/product type new images/vegetables seeds/Lettuce seeds.jpg',
+  'seed-coriander': '/assets/product-images/product type new images/vegetables seeds/Coriander seeds.jpg',
+  'seed-methi': '/assets/product-images/product type new images/vegetables seeds/Methi seeds.jpg',
   // Fruit Seeds — individual
-  'seed-mango':         '/assets/product-images/product type new images/fruit seeds/Mango seeds.jpg',
-  'seed-papaya':        '/assets/product-images/product type new images/fruit seeds/Papaya seeds.jpg',
-  'seed-guava':         '/assets/product-images/product type new images/fruit seeds/Guava seeds.jpg',
-  'seed-lemon':         '/assets/product-images/product type new images/fruit seeds/Lemon seeds.jpg',
-  'seed-pomegranate':   '/assets/product-images/product type new images/fruit seeds/Pomegranate seeds.jpg',
-  'seed-chikoo':        '/assets/product-images/product type new images/fruit seeds/Chikoo  seeds.jpg',
-  'seed-custardapple':  '/assets/product-images/product type new images/fruit seeds/Custard Apple seeds.jpg',
+  'seed-mango': '/assets/product-images/product type new images/fruit seeds/Mango seeds.jpg',
+  'seed-papaya': '/assets/product-images/product type new images/fruit seeds/Papaya seeds.jpg',
+  'seed-guava': '/assets/product-images/product type new images/fruit seeds/Guava seeds.jpg',
+  'seed-lemon': '/assets/product-images/product type new images/fruit seeds/Lemon seeds.jpg',
+  'seed-pomegranate': '/assets/product-images/product type new images/fruit seeds/Pomegranate seeds.jpg',
+  'seed-chikoo': '/assets/product-images/product type new images/fruit seeds/Chikoo  seeds.jpg',
+  'seed-custardapple': '/assets/product-images/product type new images/fruit seeds/Custard Apple seeds.jpg',
   // Leafy & Herb Seeds — individual
-  'seed-basil':         '/assets/product-images/product type new images/Leafy Seeds/Basil seeds.jpg',
-  'seed-mint':          '/assets/product-images/product type new images/Leafy Seeds/Mint Seeds.jpg',
-  'seed-parsley':       '/assets/product-images/product type new images/Leafy Seeds/Parsley seeds.jpg',
-  'seed-dill':          '/assets/product-images/product type new images/Leafy Seeds/Dill seeds.jpg',
-  'seed-kale':          '/assets/product-images/product type new images/Leafy Seeds/Kale seeds.jpg',
-  'seed-arugula':       '/assets/product-images/product type new images/Leafy Seeds/Arugula  seeds.jpg',
-  'seed-amaranth':      '/assets/product-images/product type new images/Leafy Seeds/Amaranth seeds.jpg',
-  'seed-swisschard':    '/assets/product-images/product type new images/Leafy Seeds/Swiss Chard seeds.jpg',
+  'seed-basil': '/assets/product-images/product type new images/Leafy Seeds/Basil seeds.jpg',
+  'seed-mint': '/assets/product-images/product type new images/Leafy Seeds/Mint Seeds.jpg',
+  'seed-parsley': '/assets/product-images/product type new images/Leafy Seeds/Parsley seeds.jpg',
+  'seed-dill': '/assets/product-images/product type new images/Leafy Seeds/Dill seeds.jpg',
+  'seed-kale': '/assets/product-images/product type new images/Leafy Seeds/Kale seeds.jpg',
+  'seed-arugula': '/assets/product-images/product type new images/Leafy Seeds/Arugula  seeds.jpg',
+  'seed-amaranth': '/assets/product-images/product type new images/Leafy Seeds/Amaranth seeds.jpg',
+  'seed-swisschard': '/assets/product-images/product type new images/Leafy Seeds/Swiss Chard seeds.jpg',
   'seed-fenugreek-leafy': '/assets/product-images/product type new images/Leafy Seeds/Fenugreek  seeds.jpg',
   'seed-mustardgreens': '/assets/product-images/product type new images/Leafy Seeds/Mustard Greens  seeds.jpg',
   'seed-lettuce-leafy': '/assets/product-images/product type new images/Leafy Seeds/Lettuce seeds.jpg',
   'seed-spinach-leafy': '/assets/product-images/product type new images/Leafy Seeds/Spinach  seeds.jpg',
 
-  'premium-cocopeat':            '/assets/product-images/product type new images/Grow Media.jpg',
-  'expanded-perlite':            '/assets/product-images/product type new images/Perlite Coarse.jpg',
-  'water-soluble-npk':           '/assets/product-images/product type new images/NPK Fertilizers.jpg',
-  'nano-urea-liquid':            '/assets/product-images/product type new images/Liquid Fertilizers.jpg',
-  'organic-ipm-kit':             '/assets/product-images/product type new images/Bio Pesticides (Neem Oil, Trichoderma, Bacillus).png',
-  'bio-fungicide-pro':           '/assets/product-images/product type new images/Bio Fungicides & Bio Nematicides.png',
-  'bloom-booster-nitro':         '/assets/product-images/product type new images/Amino Acid Nutrients.png',
-  'silver-black-mulch':          '/assets/product-images/product type new images/Silver Mulch.jpg',
-  'gi-pipe-structure':           '/assets/product-images/product type new images/gi pipes .jpg',
-  'polyhouse-polyethylene':      '/assets/product-images/product type new images/Polyhouse Sheets.png',
-  'insect-net-uv-pro':           '/assets/product-images/product type new images/Insect Nets.png',
-  'axial-exhaust-fan-50':        '/assets/product-images/product type new images/Exhaust Fans.jpg',
-  'cooling-pad-cellulose':       '/assets/product-images/product type new images/Cooling Pads.jpg',
-  'misting-nozzle-kit':          '/assets/product-images/product type new images/Misting Systems.jpg',
-  'disc-filter-industrial':      '/assets/product-images/product type new images/Valves.jpg',
-  'drip-line-pressure-comp':     '/assets/product-images/product type new images/Drip Irrigation Systems.jpg',
+  'premium-cocopeat': '/assets/product-images/product type new images/Grow Media.jpg',
+  'expanded-perlite': '/assets/product-images/product type new images/Perlite Coarse.jpg',
+  'water-soluble-npk': '/assets/product-images/product type new images/NPK Fertilizers.jpg',
+  'nano-urea-liquid': '/assets/product-images/product type new images/Liquid Fertilizers.jpg',
+  'organic-ipm-kit': '/assets/product-images/product type new images/Bio Pesticides (Neem Oil, Trichoderma, Bacillus).png',
+  'bio-fungicide-pro': '/assets/product-images/product type new images/Bio Fungicides & Bio Nematicides.png',
+  'bloom-booster-nitro': '/assets/product-images/product type new images/Amino Acid Nutrients.png',
+  'silver-black-mulch': '/assets/product-images/product type new images/Silver Mulch.jpg',
+  'gi-pipe-structure': '/assets/product-images/product type new images/gi pipes .jpg',
+  'polyhouse-polyethylene': '/assets/product-images/product type new images/Polyhouse Sheets.png',
+  'insect-net-uv-pro': '/assets/product-images/product type new images/Insect Nets.png',
+  'axial-exhaust-fan-50': '/assets/product-images/product type new images/Exhaust Fans.jpg',
+  'cooling-pad-cellulose': '/assets/product-images/product type new images/Cooling Pads.jpg',
+  'misting-nozzle-kit': '/assets/product-images/product type new images/Misting Systems.jpg',
+  'disc-filter-industrial': '/assets/product-images/product type new images/Valves.jpg',
+  'drip-line-pressure-comp': '/assets/product-images/product type new images/Drip Irrigation Systems.jpg',
   'fertigation-machine-classic': '/assets/product-images/product type new images/Fertigation Units.png',
-  'igolink-smarthub':            '/assets/product-images/product type new images/Polyhouse Controllers.png',
-  'vent-actuator-ac':            '/assets/product-images/product type new images/Vent Motors.jpg',
-  'farm-vfd-panel':              '/assets/product-images/product type new images/Control Panels.jpg',
-  'capsicum-seeds-hybrid':       '/assets/product-images/new main image for product/horticulture catlog .png',
-  'grafted-fruit-plants-combo':  '/assets/product-images/new main image for product/horticulture catlog .png',
-  'marigold-pro-tray':           '/assets/product-images/product type new images/Organic Fertilizers.jpg',
-  'fresh-herb-starter-kit':      '/assets/product-images/product type new images/Tulsi  seeds.jpg',
-  'iot-soil-node-v2':            '/assets/product-images/product type new images/Sensors (Temp, Humidity, Soil, pH, EC).jpg',
-  'igo-erp-farm-pro':            '/assets/product-images/product type new images/Automation Dashboards.jpg',
-  'satellite-yield-monitor':     '/assets/product-images/product type new images/Yield Prediction Tools in india.png',
-  'paddle-wheel-aerator-pro':    '/assets/product-images/product type new images/Aerators.jpg',
-  'floating-fish-feed-premium':  '/assets/product-images/product type new images/Fish Feed.jpg',
-  'cattle-feed-premium':         '/assets/product-images/product type new images/Cattle Feed.png',
-  'solar-tunnel-dryer-igo':      '/assets/product-images/product type new images/Solar Dryers.jpg',
-  'plastic-harvesting-crates':   '/assets/product-images/product type new images/Crates & Bins.jpg',
+  'igolink-smarthub': '/assets/product-images/product type new images/Polyhouse Controllers.png',
+  'vent-actuator-ac': '/assets/product-images/product type new images/Vent Motors.jpg',
+  'farm-vfd-panel': '/assets/product-images/product type new images/Control Panels.jpg',
+  'capsicum-seeds-hybrid': '/assets/product-images/new main image for product/horticulture catlog .png',
+  'grafted-fruit-plants-combo': '/assets/product-images/new main image for product/horticulture catlog .png',
+  'marigold-pro-tray': '/assets/product-images/product type new images/Organic Fertilizers.jpg',
+  'fresh-herb-starter-kit': '/assets/product-images/product type new images/Tulsi  seeds.jpg',
+  'iot-soil-node-v2': '/assets/product-images/product type new images/Sensors (Temp, Humidity, Soil, pH, EC).jpg',
+  'igo-erp-farm-pro': '/assets/product-images/product type new images/Automation Dashboards.jpg',
+  'satellite-yield-monitor': '/assets/product-images/product type new images/Yield Prediction Tools in india.png',
+  'paddle-wheel-aerator-pro': '/assets/product-images/product type new images/Aerators.jpg',
+  'floating-fish-feed-premium': '/assets/product-images/product type new images/Fish Feed.jpg',
+  'cattle-feed-premium': '/assets/product-images/product type new images/Cattle Feed.png',
+  'solar-tunnel-dryer-igo': '/assets/product-images/product type new images/Solar Dryers.jpg',
+  'plastic-harvesting-crates': '/assets/product-images/product type new images/Crates & Bins.jpg',
   // Legacy IDs
-  'vegetable-seeds':             '/assets/product-images/product type new images/Soil Mix Media.jpg',
-  'fruit-plants':                '/assets/product-images/product type new images/Rubber Plant seeds.jpg',
-  'flower-seeds':                '/assets/product-images/product type new images/Organic Fertilizers.jpg',
-  'medicinal-plants':            '/assets/product-images/product type new images/Tulsi  seeds.jpg',
-  'npk':                         '/assets/product-images/product type new images/NPK Fertilizers.jpg',
-  'organic':                     '/assets/product-images/product type new images/Organic Fertilizers.jpg',
-  'bio':                         '/assets/product-images/product type new images/Azospirillum.png',
-  'liquid-fertilizers':          '/assets/product-images/product type new images/Liquid Fertilizers.jpg',
-  'micronutrients':              '/assets/product-images/product type new images/Micronutrients (Fe, Zn, Mn, B, Cu).png',
-  'insecticides':                '/assets/product-images/product type new images/Insecticides.png',
-  'fungicides':                  '/assets/product-images/product type new images/Fungicides.png',
-  'herbicides':                  '/assets/product-images/product type new images/Herbicides.png',
-  'biological':                  '/assets/product-images/product type new images/Bio Pesticides (Neem Oil, Trichoderma, Bacillus).png',
-  'seaweed':                     '/assets/product-images/product type new images/Seaweed Extract.png',
-  'liquid':                      '/assets/product-images/product type new images/Water Soluble Fertilizers.jpg',
-  'fish-feed':                   '/assets/product-images/product type new images/Fish Feed.jpg',
-  'aerators':                    '/assets/product-images/product type new images/Aerators.jpg',
-  'biofloc-tanks':               '/assets/product-images/product type new images/Biofloc Tanks.jpg',
-  'pond-liners':                 '/assets/product-images/product type new images/Pond Liners.jpg',
-  'water-testing-kits':          '/assets/product-images/product type new images/Water Testing Kits.jpg',
-  'fish-medicines':              '/assets/product-images/product type new images/Fish Medicines.jpg',
-  'goat-feed':                   '/assets/product-images/product type new images/Goat Feed.jpg',
-  'cattle-feed':                 '/assets/product-images/product type new images/Cattle Feed.png',
-  'mineral-mixtures':            '/assets/product-images/product type new images/Mineral Mixtures.png',
-  'livestock-medicines':         '/assets/product-images/product type new images/Veterinary Medicines.png',
-  'livestock-equipment':         '/assets/product-images/product type new images/Livestock Equipment.png',
-  'polyhouse-sheets':            '/assets/product-images/product type new images/Polyhouse Sheets.png',
-  'shade-nets':                  '/assets/product-images/product type new images/Shade Nets.png',
-  'insect-nets':                 '/assets/product-images/product type new images/Insect Nets.png',
-  'gi-pipes':                    '/assets/product-images/product type new images/gi pipes .jpg',
-  'nft-channels':                '/assets/product-images/product type new images/NFT Channels.png',
-  'net-pots':                    '/assets/product-images/product type new images/Net Pots.jpg',
-  'hydroponic-nutrients':        '/assets/product-images/product type new images/Hydroponic Nutrients.png',
-  'grow-lights':                 '/assets/product-images/product type new images/IoT Devices.jpg',
-  'water-pumps':                 '/assets/product-images/product type new images/pumps .jpg',
-  'drip-irrigation-systems':     '/assets/product-images/product type new images/Drip Irrigation Systems.jpg',
-  'sprinklers':                  '/assets/product-images/product type new images/Sprinklers.jpg',
-  'irrigation-pipes':            '/assets/product-images/product type new images/Irrigation Pipes (PVC, HDPE).jpg',
-  'solar-dryers':                '/assets/product-images/product type new images/Solar Dryers.jpg',
-  'solar-pumps':                 '/assets/product-images/product type new images/Solar Pumps.jpg',
-  'solar-fencing-systems':       '/assets/product-images/product type new images/Solar Fencing Systems.jpg',
-  'soil-nutrient-scanner':       '/assets/product-images/product type new images/Water Testing Kits.jpg',
-  'smart-farm-surveillance':     '/assets/product-images/product type new images/IoT Sensor Systems.jpg',
-  'igo-erp-pro':                 '/assets/product-images/product type new images/Automation Dashboards.jpg',
-  'vacuum-packer-pro':           '/assets/product-images/product type new images/Vacuum Packing Machines.jpg',
-  'cold-chain-iot':              '/assets/product-images/product type new images/Cold Storage Units.jpg',
-  'hybrid-seed-master-kit':      '/assets/product-images/product type new images/Soil Mix Media.jpg'
+  'vegetable-seeds': '/assets/product-images/product type new images/Soil Mix Media.jpg',
+  'fruit-plants': '/assets/product-images/product type new images/Rubber Plant seeds.jpg',
+  'flower-seeds': '/assets/product-images/product type new images/Organic Fertilizers.jpg',
+  'medicinal-plants': '/assets/product-images/product type new images/Tulsi  seeds.jpg',
+  'npk': '/assets/product-images/product type new images/NPK Fertilizers.jpg',
+  'organic': '/assets/product-images/product type new images/Organic Fertilizers.jpg',
+  'bio': '/assets/product-images/product type new images/Azospirillum.png',
+  'liquid-fertilizers': '/assets/product-images/product type new images/Liquid Fertilizers.jpg',
+  'micronutrients': '/assets/product-images/product type new images/Micronutrients (Fe, Zn, Mn, B, Cu).png',
+  'insecticides': '/assets/product-images/product type new images/Insecticides.png',
+  'fungicides': '/assets/product-images/product type new images/Fungicides.png',
+  'herbicides': '/assets/product-images/product type new images/Herbicides.png',
+  'biological': '/assets/product-images/product type new images/Bio Pesticides (Neem Oil, Trichoderma, Bacillus).png',
+  'seaweed': '/assets/product-images/product type new images/Seaweed Extract.png',
+  'liquid': '/assets/product-images/product type new images/Water Soluble Fertilizers.jpg',
+  'fish-feed': '/assets/product-images/product type new images/Fish Feed.jpg',
+  'aerators': '/assets/product-images/product type new images/Aerators.jpg',
+  'biofloc-tanks': '/assets/product-images/product type new images/Biofloc Tanks.jpg',
+  'pond-liners': '/assets/product-images/product type new images/Pond Liners.jpg',
+  'water-testing-kits': '/assets/product-images/product type new images/Water Testing Kits.jpg',
+  'fish-medicines': '/assets/product-images/product type new images/Fish Medicines.jpg',
+  'goat-feed': '/assets/product-images/product type new images/Goat Feed.jpg',
+  'cattle-feed': '/assets/product-images/product type new images/Cattle Feed.png',
+  'mineral-mixtures': '/assets/product-images/product type new images/Mineral Mixtures.png',
+  'livestock-medicines': '/assets/product-images/product type new images/Veterinary Medicines.png',
+  'livestock-equipment': '/assets/product-images/product type new images/Livestock Equipment.png',
+  'polyhouse-sheets': '/assets/product-images/product type new images/Polyhouse Sheets.png',
+  'shade-nets': '/assets/product-images/product type new images/Shade Nets.png',
+  'insect-nets': '/assets/product-images/product type new images/Insect Nets.png',
+  'gi-pipes': '/assets/product-images/product type new images/gi pipes .jpg',
+  'nft-channels': '/assets/product-images/product type new images/NFT Channels.png',
+  'net-pots': '/assets/product-images/product type new images/Net Pots.jpg',
+  'hydroponic-nutrients': '/assets/product-images/product type new images/Hydroponic Nutrients.png',
+  'grow-lights': '/assets/product-images/product type new images/IoT Devices.jpg',
+  'water-pumps': '/assets/product-images/product type new images/pumps .jpg',
+  'drip-irrigation-systems': '/assets/product-images/product type new images/Drip Irrigation Systems.jpg',
+  'sprinklers': '/assets/product-images/product type new images/Sprinklers.jpg',
+  'irrigation-pipes': '/assets/product-images/product type new images/Irrigation Pipes (PVC, HDPE).jpg',
+  'solar-dryers': '/assets/product-images/product type new images/Solar Dryers.jpg',
+  'solar-pumps': '/assets/product-images/product type new images/Solar Pumps.jpg',
+  'solar-fencing-systems': '/assets/product-images/product type new images/Solar Fencing Systems.jpg',
+  'soil-nutrient-scanner': '/assets/product-images/product type new images/Water Testing Kits.jpg',
+  'smart-farm-surveillance': '/assets/product-images/product type new images/IoT Sensor Systems.jpg',
+  'igo-erp-pro': '/assets/product-images/product type new images/Automation Dashboards.jpg',
+  'vacuum-packer-pro': '/assets/product-images/product type new images/Vacuum Packing Machines.jpg',
+  'cold-chain-iot': '/assets/product-images/product type new images/Cold Storage Units.jpg',
+  'hybrid-seed-master-kit': '/assets/product-images/product type new images/Soil Mix Media.jpg'
 };
 
 // ── Shared CTA Strip ──────────────────────────────────────────────────────────
@@ -479,7 +479,7 @@ const CategoryPage: React.FC<{ category: string }> = ({ category }) => {
               <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 group">
                 <OptimizedImage
                   src={meta.cardImage}
-                  alt={meta.label}
+                  alt={meta.alt || meta.label}
                   loading="eager"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
@@ -542,7 +542,7 @@ const CategoryPage: React.FC<{ category: string }> = ({ category }) => {
                     <div className="relative aspect-[4/3] overflow-hidden bg-slate-50">
                       <OptimizedImage
                         src={img}
-                        alt={sub.label}
+                        alt={subMeta?.alt || sub.label}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -601,15 +601,16 @@ const SubcategoryPage: React.FC<{ category: string; subcategory: string }> = ({ 
   const activeMeta = {
     label: subMeta?.label || (subcategoryNode as any)?.label || subcategory,
     image: subMeta?.image || catMeta.cardImage,
-    desc:  subMeta?.desc  || catMeta.desc
+    desc: subMeta?.desc || catMeta.desc,
+    alt: subMeta?.alt || catMeta.alt
   };
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home',       item: 'https://www.igoagritechfarms.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Products',   item: 'https://www.igoagritechfarms.com/products' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.igoagritechfarms.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://www.igoagritechfarms.com/products' },
       { '@type': 'ListItem', position: 3, name: catMeta.label, item: `https://www.igoagritechfarms.com/products/${category}` },
       { '@type': 'ListItem', position: 4, name: activeMeta.label, item: `https://www.igoagritechfarms.com/products/${category}/${subcategory}` }
     ]
@@ -653,7 +654,7 @@ const SubcategoryPage: React.FC<{ category: string; subcategory: string }> = ({ 
               <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 group">
                 <OptimizedImage
                   src={activeMeta.image}
-                  alt={activeMeta.label}
+                  alt={activeMeta.alt || activeMeta.label}
                   loading="eager"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -757,7 +758,7 @@ const SubcategoryPage: React.FC<{ category: string; subcategory: string }> = ({ 
                       <div className="relative aspect-[4/3] overflow-hidden bg-slate-50">
                         <OptimizedImage
                           src={PRODUCT_IMAGES[product.id] || activeMeta.image}
-                          alt={product.name}
+                          alt={(product as any).alt || product.name}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           fallbackSrc={catMeta.cardImage}
                         />
@@ -874,9 +875,9 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
   };
 
   const priceTiers = [
-    { id: 'retail'    as const, label: 'Retail Price',         value: product.pricing.retail },
-    { id: 'wholesale' as const, label: 'Wholesale (Min 50)',   value: product.pricing.wholesale },
-    { id: 'bulk'      as const, label: 'Bulk Institutional',   value: product.pricing.bulk }
+    { id: 'retail' as const, label: 'Retail Price', value: product.pricing.retail },
+    { id: 'wholesale' as const, label: 'Wholesale (Min 50)', value: product.pricing.wholesale },
+    { id: 'bulk' as const, label: 'Bulk Institutional', value: product.pricing.bulk }
   ];
 
   const productSchema = {
@@ -900,10 +901,10 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home',          item: 'https://www.igoagritechfarms.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Products',      item: 'https://www.igoagritechfarms.com/products' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.igoagritechfarms.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://www.igoagritechfarms.com/products' },
       { '@type': 'ListItem', position: 3, name: meta?.label || category, item: `https://www.igoagritechfarms.com/products/${category}` },
-      { '@type': 'ListItem', position: 4, name: product.name,    item: `https://www.igoagritechfarms.com/products/${category}/${product.id}` }
+      { '@type': 'ListItem', position: 4, name: product.name, item: `https://www.igoagritechfarms.com/products/${category}/${product.id}` }
     ]
   };
 
@@ -957,9 +958,9 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
             {/* Trust badges */}
             <div className="grid grid-cols-3 gap-6 mt-10">
               {[
-                { icon: Shield,    label: 'Quality Assured' },
+                { icon: Shield, label: 'Quality Assured' },
                 { icon: Headphones, label: 'Expert Support' },
-                { icon: Truck,     label: 'Pan India Express' }
+                { icon: Truck, label: 'Pan India Express' }
               ].map((badge, idx) => (
                 <motion.div
                   key={idx}
@@ -999,11 +1000,10 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                     <button
                       key={size}
                       onClick={() => setSelectedPackSize(size)}
-                      className={`px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-all ${
-                        selectedPackSize === size
-                          ? 'bg-agri-green-800 text-white border-agri-green-800 shadow-md'
-                          : 'bg-white text-black/50 border-black/10 hover:border-agri-green-800 hover:text-agri-green-800'
-                      }`}
+                      className={`px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-all ${selectedPackSize === size
+                        ? 'bg-agri-green-800 text-white border-agri-green-800 shadow-md'
+                        : 'bg-white text-black/50 border-black/10 hover:border-agri-green-800 hover:text-agri-green-800'
+                        }`}
                     >
                       {size}
                     </button>
@@ -1030,11 +1030,10 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                       <button
                         key={tier.id}
                         onClick={() => setSelectedPriceTier(tier.id)}
-                        className={`px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border ${
-                          selectedPriceTier === tier.id
-                            ? 'bg-agri-green-800 text-white border-agri-green-800 shadow-lg'
-                            : 'bg-white text-black/40 border-black/5 hover:border-agri-green-800 hover:text-agri-green-800'
-                        }`}
+                        className={`px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border ${selectedPriceTier === tier.id
+                          ? 'bg-agri-green-800 text-white border-agri-green-800 shadow-lg'
+                          : 'bg-white text-black/40 border-black/5 hover:border-agri-green-800 hover:text-agri-green-800'
+                          }`}
                       >
                         {tier.label}
                       </button>
@@ -1047,16 +1046,15 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
               <div className="mt-12">
                 <div className="flex border-b border-black/5 mb-10 overflow-x-auto no-scrollbar">
                   {[
-                    { id: 'description',    label: 'Overview' },
+                    { id: 'description', label: 'Overview' },
                     { id: 'specifications', label: 'Technical Details' },
-                    { id: 'howToUse',       label: 'Usage Protocol' }
+                    { id: 'howToUse', label: 'Usage Protocol' }
                   ].map(tab => (
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id as any)}
-                      className={`px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap transition-all relative ${
-                        activeTab === tab.id ? 'text-agri-green-800' : 'text-black/30 hover:text-black/60'
-                      }`}
+                      className={`px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap transition-all relative ${activeTab === tab.id ? 'text-agri-green-800' : 'text-black/30 hover:text-black/60'
+                        }`}
                     >
                       {tab.label}
                       {activeTab === tab.id && (

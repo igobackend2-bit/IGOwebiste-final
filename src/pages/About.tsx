@@ -363,7 +363,7 @@ const About = () => (
     <section className="py-32 bg-agri-green-950 relative overflow-hidden">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-50">
-        <OptimizedImage src="/assets/compressed/background-page-for-agri-starup-and-about-.webp" alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+        <OptimizedImage src="/assets/compressed/background-page-for-agri-starup-and-about-.webp" alt="IGO Agritech Farms About Us Background" loading="lazy" decoding="async" className="w-full h-full object-cover" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-agri-green-950 via-agri-green-950/95 to-agri-green-950/80" />
 

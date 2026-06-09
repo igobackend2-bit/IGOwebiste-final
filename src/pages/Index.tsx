@@ -16,18 +16,18 @@ const CHANGEABLE_SLIDES = [
 ];
 
 // PERMANENT first slide — Now restored to IGO Peoples as Slide 1
-const PERMANENT_SLIDE = { src: "/assets/demo-poster/main-banner.png", label: "IGO Group", alt: "IGO Group Main Banner", isPoster: true };
+const PERMANENT_SLIDE = { src: "/assets/demo-poster/main-banner.png", label: "IGO Group", alt: "IGO Group Skilled warriors", isPoster: true };
 
 const HERO_SLIDES = [PERMANENT_SLIDE, ...CHANGEABLE_SLIDES];
 
 // CEO photo carousel images
 const CEO_PHOTOS = [
-  "/assets/ceo page image/about-copy.webp",
-  "/assets/ceo page image/award2-jpg.jpeg",
-  "/assets/ceo page image/award3-jpg.jpeg",
-  "/assets/ceo page image/award4-jpg.jpeg",
-  "/assets/ceo page image/most-trustwd-agri-brand-in-india-2026.jpg",
-  "/assets/ceo page image/new image foe the 2nd page .webp",
+  { src: "/assets/ceo page image/about-copy.webp", alt: "best ceo in agri sector" },
+  { src: "/assets/ceo page image/award2-jpg.jpeg", alt: "best ceo in agri sector" },
+  { src: "/assets/ceo page image/award3-jpg.jpeg", alt: "best ceo in agri sector" },
+  { src: "/assets/ceo page image/award4-jpg.jpeg", alt: "best ceo in agri sector" },
+  { src: "/assets/ceo page image/most-trustwd-agri-brand-in-india-2026.jpg", alt: "best ceo in agri sector" },
+  { src: "/assets/ceo page image/new image foe the 2nd page .webp", alt: "best ceo in agri sector" },
 ];
 
 const fader: Variants = {
@@ -46,7 +46,7 @@ const HeroSection = () => {
   const dynamicSlides = useMemo(() => {
     const offers = getActiveOffers();
     if (offers.length === 0) return HERO_SLIDES;
-    
+
     return offers.map(o => ({
       src: o.image,
       label: o.title || o.badge,
@@ -279,11 +279,10 @@ const CeoPhotoCarousel = () => {
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`CEO photo ${i + 1}`}
-            className={`rounded-full transition-all duration-500 ${
-              i === current
-                ? "w-6 h-2 bg-white"
-                : "w-2 h-2 bg-white/50 hover:bg-white/80"
-            }`}
+            className={`rounded-full transition-all duration-500 ${i === current
+              ? "w-6 h-2 bg-white"
+              : "w-2 h-2 bg-white/50 hover:bg-white/80"
+              }`}
           />
         ))}
       </div>
@@ -499,7 +498,7 @@ const ProjectGallerySection = () => {
       title: "Agri farming projects",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/agri-farming-project.webp",
+      image: "/assets/compressed/projects/main-page/agri-farming-project.webp", alt: "top agriculture projects in india",
       href: "/projects/agri"
     },
     {
@@ -507,7 +506,7 @@ const ProjectGallerySection = () => {
       title: "Aquaculture Farming project",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/aquaculture-farming.webp",
+      image: "/assets/compressed/projects/main-page/aquaculture-farming.webp", alt: "top aquaculture projects in india",
       href: "/projects/aquaculture"
     },
     {
@@ -515,7 +514,7 @@ const ProjectGallerySection = () => {
       title: "Livestock Farming project",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/livestock-farming.webp",
+      image: "/assets/compressed/projects/main-page/livestock-farming.webp", alt: "top livestock projects in india",
       href: "/projects/livestock"
     },
     {
@@ -523,7 +522,7 @@ const ProjectGallerySection = () => {
       title: "Farm engineering projects",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/farm-engineering.webp",
+      image: "/assets/compressed/projects/main-page/farm-engineering.webp", alt: "farm engineering projects in india",
       href: "/projects/engineering"
     }
   ];
@@ -829,7 +828,7 @@ const BrandsSection = () => {
   const rafRef = useRef<number>(0);
   const pos = useRef(0);   // rendered position
   const target = useRef(0);   // desired position — auto-scroll ALWAYS advances this
-  
+
   // Parallax background logic
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -937,14 +936,14 @@ const BrandsSection = () => {
   return (
     <section className="py-20 md:py-40 bg-slate-100 overflow-hidden border-t border-black/5 content-defer relative">
       {/* ── HEADING AREA with Background Image ── */}
-      <div 
+      <div
         ref={sectionRef}
-        className="relative py-40 mb-10 overflow-hidden flex items-center justify-center min-h-[500px]" 
+        className="relative py-40 mb-10 overflow-hidden flex items-center justify-center min-h-[500px]"
       >
         {/* Parallax Background Image */}
-        <motion.div 
-          style={{ 
-            y: backgroundY, 
+        <motion.div
+          style={{
+            y: backgroundY,
             backgroundImage: "url('/assets/brands/background image of brand .jpeg')",
             backgroundSize: 'contain',
             backgroundPosition: 'center',
@@ -952,50 +951,50 @@ const BrandsSection = () => {
           }}
           className="absolute inset-0 z-0 scale-150 pointer-events-none"
         />
-        
+
         {/* Readability Overlay */}
         <div className="absolute inset-0 bg-white/80 z-[1]" />
 
         <div className="container mx-auto px-6 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto"
-        >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px w-12 bg-agri-gold-500/40" />
-            <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">The Sovereign Ecosystem</span>
-            <div className="h-px w-12 bg-agri-gold-500/40" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-7xl font-serif text-agri-earth-900 mb-8 leading-[1.1]">
-            The <span className="italic text-agri-gold-500">26 Verticals</span> of IGO.
-          </h2>
-          <p className="text-black/50 text-lg font-light leading-relaxed max-w-xl mx-auto">
-            A sovereign agricultural ecosystem covering Engineering, Production, Trade, and Consumer Lifestyle.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-12 bg-agri-gold-500/40" />
+              <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">The Sovereign Ecosystem</span>
+              <div className="h-px w-12 bg-agri-gold-500/40" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-7xl font-serif text-agri-earth-900 mb-8 leading-[1.1]">
+              The <span className="italic text-agri-gold-500">26 Verticals</span> of IGO.
+            </h2>
+            <p className="text-black/50 text-lg font-light leading-relaxed max-w-xl mx-auto">
+              A sovereign agricultural ecosystem covering Engineering, Production, Trade, and Consumer Lifestyle.
+            </p>
+          </motion.div>
 
-        {/* Nav buttons */}
-        <div className="flex items-center justify-center gap-4 mt-10">
-          <button
-            onClick={() => scrollManual('prev')}
-            aria-label="Previous brands"
-            className="w-12 h-12 rounded-full border border-black/10 bg-white hover:bg-agri-gold-500 hover:border-agri-gold-500 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md group"
-          >
-            <ChevronLeft className="w-5 h-5 text-black/40 group-hover:text-black transition-colors" />
-          </button>
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30">Explore all 26 verticals</span>
-          <button
-            onClick={() => scrollManual('next')}
-            aria-label="Next brands"
-            className="w-12 h-12 rounded-full border border-black/10 bg-white hover:bg-agri-gold-500 hover:border-agri-gold-500 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md group"
-          >
-            <ChevronRight className="w-5 h-5 text-black/40 group-hover:text-black transition-colors" />
-          </button>
+          {/* Nav buttons */}
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <button
+              onClick={() => scrollManual('prev')}
+              aria-label="Previous brands"
+              className="w-12 h-12 rounded-full border border-black/10 bg-white hover:bg-agri-gold-500 hover:border-agri-gold-500 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md group"
+            >
+              <ChevronLeft className="w-5 h-5 text-black/40 group-hover:text-black transition-colors" />
+            </button>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30">Explore all 26 verticals</span>
+            <button
+              onClick={() => scrollManual('next')}
+              aria-label="Next brands"
+              className="w-12 h-12 rounded-full border border-black/10 bg-white hover:bg-agri-gold-500 hover:border-agri-gold-500 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md group"
+            >
+              <ChevronRight className="w-5 h-5 text-black/40 group-hover:text-black transition-colors" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Track — overflow:hidden so nothing is scrollable; transform moves the strip */}
       <div className="relative py-10 overflow-hidden">

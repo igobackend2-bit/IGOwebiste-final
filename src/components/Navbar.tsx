@@ -124,7 +124,7 @@ const MegaMenu = ({ link }: { link: any }) => {
                           {subSector.icon ? (
                             <div className="w-8 h-8 rounded-xl bg-slate-50 border border-black/5 flex items-center justify-center text-primary shadow-sm shrink-0 overflow-hidden group-hover/sub:scale-110 transition-transform">
                               {typeof subSector.icon === 'string' && subSector.icon.startsWith('/') ? (
-                                <img src={subSector.icon} loading="lazy" className="w-full h-full object-cover object-center" alt="" />
+                                <img src={subSector.icon} loading="lazy" className="w-full h-full object-cover object-center" alt={subSector.label || "IGO Agritech Service Icon"} />
                               ) : typeof subSector.icon === 'string' ? (
                                 <span className="text-lg">{subSector.icon}</span>
                               ) : (
@@ -159,7 +159,7 @@ const MegaMenu = ({ link }: { link: any }) => {
                       >
                         <div className="w-12 h-12 rounded-xl bg-white border border-black/5 flex items-center justify-center text-black/40 group-hover/service:text-primary shadow-sm shrink-0 transition-colors overflow-hidden">
                           {(subSector.icon || subSector.image) && typeof (subSector.icon || subSector.image) === 'string' && (subSector.icon || subSector.image).startsWith('/') ? (
-                            <img src={subSector.icon || subSector.image} loading="lazy" className="w-full h-full object-cover object-center rounded-xl" alt="" />
+                            <img src={subSector.icon || subSector.image} loading="lazy" className="w-full h-full object-cover object-center rounded-xl" alt={subSector.label || "IGO Agritech Service Image"} />
                           ) : typeof subSector.icon === 'string' ? (
                             <span className="text-xl">{subSector.icon}</span>
                           ) : subSector.icon ? (
@@ -210,7 +210,7 @@ const MobileNavLink = ({ link, depth = 0 }: { link: any, depth?: number }) => {
           }}
         >
           {link.icon && typeof link.icon === 'string' && link.icon.startsWith('/') ? (
-            <img src={link.icon} alt="" loading="lazy" className={`object-contain opacity-70 ${depth === 0 ? "w-6 h-6" : "w-5 h-5"}`} />
+            <img src={link.icon} alt={link.label || "IGO Agritech Menu Icon"} loading="lazy" className={`object-contain opacity-70 ${depth === 0 ? "w-6 h-6" : "w-5 h-5"}`} />
           ) : link.icon && typeof link.icon !== 'string' ? (
             <link.icon className={`opacity-70 ${depth === 0 ? "w-6 h-6" : "w-5 h-5"}`} />
           ) : (

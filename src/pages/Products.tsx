@@ -78,7 +78,7 @@ const Products = () => {
                        <div className="flex -space-x-3">
                          {[1,2,3].map(i => (
                            <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-slate-100 shadow-xl overflow-hidden">
-                              <img src={`/assets/compressed/clients/client-${i}.jpg`} alt="" className="w-full h-full object-cover opacity-60" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                              <img src={`/assets/compressed/clients/client-${i}.jpg`} alt={`IGO Agritech Farms Client Logo ${i}`} className="w-full h-full object-cover opacity-60" onError={(e) => (e.currentTarget.style.display = 'none')} />
                            </div>
                          ))}
                        </div>
