@@ -283,7 +283,7 @@ export const blogPosts = [
 <p>Receiving this award at the India Trade Awards 2022 is not just a celebration of what we have achieved — it is a powerful motivation to aim higher. IGO Agritech Farms has always been committed to delivering agricultural projects, products, and services that meet global standards, and this recognition reaffirms that we are on the right path.</p>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;">
-  <img src="/assets/blog/b51.webp" alt="IGO Award Ceremony" style="width:100%;border-radius:1rem;" />
+  <img src="/assets/blog/b51.webp" alt="Prestigious industry award ceremony honoring IGO Agritech Farms" style="width:100%;border-radius:1rem;" />
   <img src="/assets/blog/b52.webp" alt="IGO Award Recognition" style="width:100%;border-radius:1rem;" />
 </div>
 
@@ -297,7 +297,7 @@ export const blogPosts = [
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;">
   <img src="/assets/blog/b55.webp" alt="IGO Team" style="width:100%;border-radius:1rem;" />
-  <img src="/assets/blog/b56.webp" alt="IGO Projects" style="width:100%;border-radius:1rem;" />
+  <img src="/assets/blog/b56.webp" alt="Showcase of Successful IGO Agritech Farming Projects" style="width:100%;border-radius:1rem;" />
 </div>
 
 <h2>Gratitude to Our Stakeholders</h2>

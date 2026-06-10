@@ -46,7 +46,7 @@ const AdsLogin = () => {
         <div className="text-center mb-8">
           <img
             src="https://www.igoagritechfarms.com/images/logo.png"
-            alt="IGO Agritech Farms"
+            alt="IGO Agritech Farms Corporate Brand Identity"
             className="h-11 object-contain mx-auto mb-5 invert brightness-0 invert opacity-80"
           />
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/15 border border-primary/25 mb-4">

@@ -293,7 +293,7 @@ const BlogManager = () => {
                 <tr key={p.id} className="hover:bg-gray-50/50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      {p.cover_url && <img src={p.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt="" onError={e => (e.currentTarget.style.display = "none")} />}
+                      {p.cover_url && <img src={p.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt={`${p.name || "Product"} cover image`} onError={e => (e.currentTarget.style.display = "none")} />}
                       <div>
                         <p className="font-semibold text-gray-800 line-clamp-1">{p.title}</p>
                         <p className="text-xs text-gray-400 line-clamp-1">{p.excerpt}</p>
@@ -445,7 +445,7 @@ const ProjectsManager = () => {
                 <tr key={p.id} className="hover:bg-gray-50/50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      {p.cover_url && <img src={p.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt="" onError={e => (e.currentTarget.style.display = "none")} />}
+                      {p.cover_url && <img src={p.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt={`${p.name || "Product"} cover image`} onError={e => (e.currentTarget.style.display = "none")} />}
                       <p className="font-semibold text-gray-800 line-clamp-1">{p.title}</p>
                     </div>
                   </td>
@@ -583,7 +583,7 @@ const ProductsManager = () => {
                 <tr key={p.id} className="hover:bg-gray-50/50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      {p.cover_url && <img src={p.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt="" onError={e => (e.currentTarget.style.display = "none")} />}
+                      {p.cover_url && <img src={p.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt={`${p.name || "Product"} cover image`} onError={e => (e.currentTarget.style.display = "none")} />}
                       <div>
                         <p className="font-semibold text-gray-800">{p.name}</p>
                         {p.is_featured && <span className="text-[9px] bg-amber-100 text-amber-700 font-bold uppercase tracking-wide px-1.5 py-0.5 rounded">Featured</span>}
@@ -828,7 +828,7 @@ const ServicesManager = () => {
           {items.length === 0 && <div className="col-span-3 text-center py-12 text-gray-400 bg-white rounded-2xl border border-gray-100">No services yet.</div>}
           {items.map(s => (
             <div key={s.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-              {s.cover_url && <img src={s.cover_url} className="w-full h-32 object-cover bg-gray-100" alt="" onError={e => (e.currentTarget.style.display = "none")} />}
+              {s.cover_url && <img src={s.cover_url} className="w-full h-32 object-cover bg-gray-100" alt={`${s.title || "Subcategory"} cover image`} onError={e => (e.currentTarget.style.display = "none")} />}
               <div className="p-4">
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div>
@@ -1050,7 +1050,7 @@ const AgriStartupManager = () => {
           {items.length === 0 && <div className="col-span-3 text-center py-12 text-gray-400 bg-white rounded-2xl border border-gray-100">No programs yet.</div>}
           {items.map(s => (
             <div key={s.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-              {s.cover_url && <div className="relative h-32 bg-gray-100"><img src={s.cover_url} className="w-full h-full object-cover" alt="" onError={e => (e.currentTarget.style.display = "none")} /><span className="absolute top-2 right-2 text-[9px] bg-black/40 text-white px-2 py-0.5 rounded font-bold uppercase">{s.image_position}</span></div>}
+              {s.cover_url && <div className="relative h-32 bg-gray-100"><img src={s.cover_url} className="w-full h-full object-cover" alt={`${s.title || "Subcategory"} cover image`} onError={e => (e.currentTarget.style.display = "none")} /><span className="absolute top-2 right-2 text-[9px] bg-black/40 text-white px-2 py-0.5 rounded font-bold uppercase">{s.image_position}</span></div>}
               <div className="p-4">
                 <div className="flex items-start justify-between gap-2 mb-1">
                   <div><p className="font-bold text-gray-800 text-sm">{s.title}</p><p className="text-xs text-gray-400 italic">{s.tagline}</p></div>
@@ -1191,7 +1191,7 @@ const AcademyManager = () => {
                 <tr key={c.id} className="hover:bg-gray-50/50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      {c.cover_url && <img src={c.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt="" onError={e => (e.currentTarget.style.display = "none")} />}
+                      {c.cover_url && <img src={c.cover_url} className="w-10 h-10 rounded-lg object-cover shrink-0 bg-gray-100" alt={`${c.label || "Category"} cover image`} onError={e => (e.currentTarget.style.display = "none")} />}
                       <div>
                         <p className="font-semibold text-gray-800">{c.title}</p>
                         <p className="text-xs text-gray-400">{c.duration} {c.price_label && `· ${c.price_label}`}</p>
@@ -1372,7 +1372,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const t = setTimeout(() => { if (loading) navigate("/admin/login"); }, 8000);
     return () => clearTimeout(t);
-  }, []);
+  }, [loading, navigate]);
 
   if (loading || !isAdmin) return (
     <div className="min-h-screen flex items-center justify-center bg-[#0F2414]">

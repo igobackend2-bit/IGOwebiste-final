@@ -39,7 +39,7 @@ const Projects = () => {
         >
           <img
             src="/assets/compressed/projects/main-page/agri-farming-project.jpg"
-            alt="IGO Projects"
+            alt="Showcase of Successful IGO Agritech Farming Projects"
             className="w-full h-full object-cover"
           />
         </motion.div>

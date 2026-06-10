@@ -106,7 +106,7 @@ const AgriStartupPlatform = () => (
       >
         <OptimizedImage
           src="/assets/compressed/background-page-for-agri-starup-and-about-.webp"
-          alt="Agri Startup Platform"
+          alt="IGO Agri Startup Platform for Emerging Farm Entrepreneurs"
           loading="eager"
           decoding="async"
           className="w-full h-full object-cover"

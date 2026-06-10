@@ -117,7 +117,7 @@ const About = () => (
       >
         <OptimizedImage
           src="/assets/compressed/background-page-for-agri-starup-and-about-.webp"
-          alt="IGO Agritech Farms"
+          alt="IGO Agritech Farms Corporate Brand Identity"
           decoding="async"
           className="w-full h-full object-cover"
         />
@@ -238,7 +238,7 @@ const About = () => (
         >
           <OptimizedImage
             src="/assets/compressed/about-page-image-.webp"
-            alt="Dr. John Yesudhas — IGO Agritech Farms"
+            alt="Dr. John Yesudhas, visionary leader of IGO Agritech Farms"
             loading="lazy"
             decoding="async"
             className="w-full h-full object-cover object-center"
@@ -363,7 +363,7 @@ const About = () => (
     <section className="py-32 bg-agri-green-950 relative overflow-hidden">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-50">
-        <OptimizedImage src="/assets/compressed/background-page-for-agri-starup-and-about-.webp" alt="IGO Agritech Farms About Us Background" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+        <OptimizedImage src="/assets/compressed/background-page-for-agri-starup-and-about-.webp" alt="Background image showcasing IGO Agritech Farms corporate mission" loading="lazy" decoding="async" className="w-full h-full object-cover" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-agri-green-950 via-agri-green-950/95 to-agri-green-950/80" />
 
@@ -470,7 +470,7 @@ const About = () => (
               <div key={i} className="relative aspect-[4/3] overflow-hidden">
                 <OptimizedImage
                   src={src}
-                  alt="IGO Award Ceremony"
+                  alt="Prestigious industry award ceremony honoring IGO Agritech Farms"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[1.2s]"

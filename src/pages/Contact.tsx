@@ -156,7 +156,7 @@ const Contact = () => {
         >
           <OptimizedImage
             src="/assets/compressed/projects/main-page/agri-farming-project.webp"
-            alt="IGO Contact"
+            alt="Contact IGO Agritech Farms Customer Support"
             loading="eager"
             decoding="async"
             className="w-full h-full object-cover"

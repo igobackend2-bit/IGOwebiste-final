@@ -42,7 +42,7 @@ const Products = () => {
                 >
                   <img
                     src="/assets/product-images/new main image for product/agri inputs .jpg"
-                    alt="IGO Products Catalog"
+                    alt="Comprehensive Catalog of IGO Agritech Products and Solutions"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute top-8 left-8">

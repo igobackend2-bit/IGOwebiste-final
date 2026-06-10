@@ -343,7 +343,7 @@ const Navbar = () => {
     <nav aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navClasses}`}>
       <div className="container mx-auto px-4 lg:px-5 xl:px-6 flex items-center justify-between h-[88px] lg:h-[104px] xl:h-[120px] max-w-full overflow-visible">
         <Link to="/" className="flex items-center gap-2 lg:gap-3 group z-50 shrink-0">
-          <img src={companyInfo.logo} alt="IGO Logo" loading="eager" className={`h-[80px] lg:h-[96px] xl:h-[112px] w-auto group-hover:scale-105 transition-transform mix-blend-multiply contrast-125 brightness-105 ${logoInvertClass}`} />
+          <img src={companyInfo.logo} alt="IGO Agritech Farms Official Company Logo" loading="eager" className={`h-[80px] lg:h-[96px] xl:h-[112px] w-auto group-hover:scale-105 transition-transform mix-blend-multiply contrast-125 brightness-105 ${logoInvertClass}`} />
           <span className={`text-lg lg:text-2xl xl:text-3xl font-black tracking-tight uppercase font-display whitespace-nowrap ${textColorClass}`}>IGO <span className="text-primary">Agritech</span></span>
         </Link>
 

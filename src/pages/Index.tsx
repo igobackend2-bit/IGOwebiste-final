@@ -11,23 +11,23 @@ import { getActiveOffers, initDefaultOffers } from "@/data/offersData";
 
 // Changeable slides — add, remove, or reorder freely
 const CHANGEABLE_SLIDES = [
-  { src: "/assets/hero-banners/active/bakrid-banner-1.png", label: "Bakrid Offer", alt: "Bakrid Special Offer", isPoster: true },
-  { src: "/assets/hero-banners/active/bakrid-banner-2.png", label: "Special Offer", alt: "Bakrid Day Special Project Offer", isPoster: true },
+  { src: "/assets/hero-banners/active/bakrid-banner-1.png", label: "Bakrid Offer", alt: "Exclusive Bakrid Special Agricultural Project Offer", isPoster: true },
+  { src: "/assets/hero-banners/active/bakrid-banner-2.png", label: "Special Offer", alt: "Exclusive Bakrid Day Special Agricultural Project Offer", isPoster: true },
 ];
 
 // PERMANENT first slide — Now restored to IGO Peoples as Slide 1
-const PERMANENT_SLIDE = { src: "/assets/demo-poster/main-banner.png", label: "IGO Group", alt: "IGO Group Skilled warriors", isPoster: true };
+const PERMANENT_SLIDE = { src: "/assets/demo-poster/main-banner.png", label: "IGO Group", alt: "Professional and Skilled Engineering Workforce at IGO Group", isPoster: true };
 
 const HERO_SLIDES = [PERMANENT_SLIDE, ...CHANGEABLE_SLIDES];
 
 // CEO photo carousel images
 const CEO_PHOTOS = [
-  { src: "/assets/ceo page image/about-copy.webp", alt: "best ceo in agri sector" },
-  { src: "/assets/ceo page image/award2-jpg.jpeg", alt: "best ceo in agri sector" },
-  { src: "/assets/ceo page image/award3-jpg.jpeg", alt: "best ceo in agri sector" },
-  { src: "/assets/ceo page image/award4-jpg.jpeg", alt: "best ceo in agri sector" },
-  { src: "/assets/ceo page image/most-trustwd-agri-brand-in-india-2026.jpg", alt: "best ceo in agri sector" },
-  { src: "/assets/ceo page image/new image foe the 2nd page .webp", alt: "best ceo in agri sector" },
+  { src: "/assets/ceo page image/about-copy.webp", alt: "Award-winning leadership and executive excellence in the agricultural sector" },
+  { src: "/assets/ceo page image/award2-jpg.jpeg", alt: "Award-winning leadership and executive excellence in the agricultural sector" },
+  { src: "/assets/ceo page image/award3-jpg.jpeg", alt: "Award-winning leadership and executive excellence in the agricultural sector" },
+  { src: "/assets/ceo page image/award4-jpg.jpeg", alt: "Award-winning leadership and executive excellence in the agricultural sector" },
+  { src: "/assets/ceo page image/most-trustwd-agri-brand-in-india-2026.jpg", alt: "Award-winning leadership and executive excellence in the agricultural sector" },
+  { src: "/assets/ceo page image/new image foe the 2nd page .webp", alt: "Award-winning leadership and executive excellence in the agricultural sector" },
 ];
 
 const fader: Variants = {
@@ -498,7 +498,7 @@ const ProjectGallerySection = () => {
       title: "Agri farming projects",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/agri-farming-project.webp", alt: "top agriculture projects in india",
+      image: "/assets/compressed/projects/main-page/agri-farming-project.webp", alt: "Top-rated turnkey agriculture projects implemented across India",
       href: "/projects/agri"
     },
     {
@@ -506,7 +506,7 @@ const ProjectGallerySection = () => {
       title: "Aquaculture Farming project",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/aquaculture-farming.webp", alt: "top aquaculture projects in india",
+      image: "/assets/compressed/projects/main-page/aquaculture-farming.webp", alt: "Leading commercial aquaculture and fish farming projects in India",
       href: "/projects/aquaculture"
     },
     {
@@ -514,7 +514,7 @@ const ProjectGallerySection = () => {
       title: "Livestock Farming project",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/livestock-farming.webp", alt: "top livestock projects in india",
+      image: "/assets/compressed/projects/main-page/livestock-farming.webp", alt: "State-of-the-art commercial livestock and dairy projects in India",
       href: "/projects/livestock"
     },
     {
@@ -522,7 +522,7 @@ const ProjectGallerySection = () => {
       title: "Farm engineering projects",
       bg: "bg-agri-earth-100",
       hoverBg: "hover:bg-agri-green-50",
-      image: "/assets/compressed/projects/main-page/farm-engineering.webp", alt: "farm engineering projects in india",
+      image: "/assets/compressed/projects/main-page/farm-engineering.webp", alt: "Advanced farm engineering and structural projects across India",
       href: "/projects/engineering"
     }
   ];
@@ -1073,7 +1073,7 @@ const BarleyBannerSection = () => (
     >
       <img
         src="/assets/makeup/barley-hero-clean.webp"
-        alt="IGO Agritech Farms — Innovating the Future of Farming"
+        alt="IGO Agritech Farms - Innovating the Future of Modern Farming"
         loading="lazy"
         decoding="async"
         className="w-full object-cover object-center"
